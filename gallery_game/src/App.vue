@@ -1,17 +1,23 @@
 <template>
   <main id="app">
-    <!-- <GalleryPiece v-bind:pieces="pieces"/> -->
-    <article :key="piece.id" v-for="piece in pieces">
-      <GalleryPiece :piece="piece"/>
-    </article>
+    <img src="./assets/texture.jpg" class="nav-img"/> 
+    <nav>
+      <img src="./assets/bicycle-logo.jpg" class="logo" />
+      <div class="nav-text">
+        <h1 class="app-title">Gallery Game</h1>
+        <p class="brief">An art matching memory game</p>
+      </div>
+    </nav>
+    <div class="card-container">
+      <article :key="piece.id" v-for="piece in pieces" class="card">
+        <GalleryPiece :piece="piece"/>
+      </article>
+    </div>
   </main>
 </template>
 
 <script>
-// import { getArt } from '../src/apicalls/apicalls';
 import GalleryPiece from './components/GalleryPiece';
-// const givemesomething = getArt();
-// console.log(givemesomething)
 
 export default {
   name: 'app',
@@ -20,24 +26,8 @@ export default {
   },
   data() {
     return {
-      pieces: [
-        // {
-        //   id: 1,
-        //   title: "Title1",
-        //   image: "url to image1",
-        // },
-        // {
-        //   id: 2,
-        //   title: "Title2",
-        //   image: "url to image2",
-        // },
-        // {
-        //   id: 3,
-        //   title: "Title3",
-        //   image: "url to image3",
-        // }
-      ],
-      error: "try again"
+      pieces: [],
+      error: "There was trouble getting the data."
     }
   },
   mounted() {
@@ -55,12 +45,12 @@ export default {
         }
     },
     arrangeData(artData) {
-      // const id = 0;
       this.pieces = artData.records.map(piece => {
          return {
-          //  id: id += 1,
            title: piece.title,
-           image: piece.primaryimageurl
+           image: piece.primaryimageurl,
+           date: piece.dated,
+           artist: piece.people[0].name,
          }
       });
     }
@@ -79,5 +69,41 @@ export default {
   body {
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     line-height: 1.4;
+  }
+
+  nav {
+    margin-left: 18%;
+    position: relative;
+    display: flex;
+    bottom: 265px;
+  }
+
+  .nav-img {
+    width: 100%;
+    height: 300px;
+    opacity: .5;
+  }
+
+  .logo {
+    /* position: absolute;
+    left: 70%; */
+    width: 250px;
+    opacity: .7;
+  }
+
+  .app-title {
+    font-size: 4em;
+  }
+
+  .brief {
+    font-size: 2em; 
+  }
+
+  .card-container {
+    position: relative;
+    bottom: 200px;
+    display: inline-flex;
+    justify-content: center;
+    flex-wrap: wrap;
   }
 </style>
