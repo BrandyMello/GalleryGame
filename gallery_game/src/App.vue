@@ -1,6 +1,5 @@
 <template>
   <main id="app">
-    <!-- <GalleryPiece v-bind:pieces="pieces"/> -->
     <article :key="piece.id" v-for="piece in pieces">
       <GalleryPiece :piece="piece"/>
     </article>
@@ -8,10 +7,7 @@
 </template>
 
 <script>
-// import { getArt } from '../src/apicalls/apicalls';
 import GalleryPiece from './components/GalleryPiece';
-// const givemesomething = getArt();
-// console.log(givemesomething)
 
 export default {
   name: 'app',
@@ -20,24 +16,8 @@ export default {
   },
   data() {
     return {
-      pieces: [
-        // {
-        //   id: 1,
-        //   title: "Title1",
-        //   image: "url to image1",
-        // },
-        // {
-        //   id: 2,
-        //   title: "Title2",
-        //   image: "url to image2",
-        // },
-        // {
-        //   id: 3,
-        //   title: "Title3",
-        //   image: "url to image3",
-        // }
-      ],
-      error: "try again"
+      pieces: [],
+      error: "There was trouble getting the data."
     }
   },
   mounted() {
