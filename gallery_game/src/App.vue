@@ -1,15 +1,17 @@
 <template>
   <div id="app">
-    {{pieces[0].title}}
+    <Pieces :pieces="pieces"/>
+    <!-- {{pieces[0].title}} -->
   </div>
 </template>
 
 <script>
+import Pieces from './components/Pieces'
 
 export default {
   name: 'app',
   components: {
-   
+    Pieces
   },
   data() {
     return {
@@ -17,12 +19,24 @@ export default {
         {
           id: 1,
           title: "Title1",
-          image: "url to image",
+          image: "url to image1",
+        },
+        {
+          id: 2,
+          title: "Title2",
+          image: "url to image2",
+        },
+        {
+          id: 1,
+          title: "Title2",
+          image: "url to image3",
         }
       ]
     }
   }
 }
+
+
 </script>
 
 <style>
