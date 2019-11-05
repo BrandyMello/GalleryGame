@@ -35,10 +35,8 @@ export default {
         }
     },
     arrangeData(artData) {
-      // const id = 0;
       this.pieces = artData.records.map(piece => {
          return {
-          //  id: id += 1,
            title: piece.title,
            image: piece.primaryimageurl
          }

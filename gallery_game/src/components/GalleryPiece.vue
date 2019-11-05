@@ -1,7 +1,7 @@
 <template>
   <div class="gallery-piece">
     <p>{{ piece.title }}</p>
-    <p>{{ piece.image }}</p>
+    <img :src="piece.image" />
   </div>
 </template>
 <script>
@@ -13,6 +13,10 @@ export default {
 <style scoped>
   .gallery-piece {
     border: 2px solid black;
-    /* background-image: {piece.image}; */
+  }
+
+  img {
+    width: 200px;
+    height: auto;
   }
 </style>
