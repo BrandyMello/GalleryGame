@@ -52,14 +52,14 @@ export default {
     margin-left: 6%;
   }
 
-  .blank-card {
+  /* .blank-card {
     position: relative;
     bottom: 370px;
     background-color: black;
     border: 2px solid black;
     width: 230px;
     height: 370px;
-  }
+  } */
 
   .cards {
     height: 370px;
