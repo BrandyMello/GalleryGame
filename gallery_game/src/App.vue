@@ -85,8 +85,6 @@ export default {
   }
 
   .logo {
-    /* position: absolute;
-    left: 70%; */
     width: 250px;
     opacity: .7;
   }
@@ -106,4 +104,5 @@ export default {
     justify-content: center;
     flex-wrap: wrap;
   }
+
 </style>
